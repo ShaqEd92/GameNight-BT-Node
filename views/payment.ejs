@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.ico" />
+    <title>Game N!ght</title>
+    <meta name="description" content="Rent a wide selection of games." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/stylesheets/App.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="payment-page">
+        <h3 id="paymentInstructions">Please enter your payment details</h3>
+        <form action="/submit-payment" id="paymentForm" method="post" autocomplete="off">
+            <div class="credit-card-body">
+                <div class="credit-card-inner">
+                    <div class="credit-card-front">
+                        <div id="CC-Header">
+                            <br>
+                            <p>GAME N!GHT PAYMENT METHOD</p>
+                        </div>
+                        <div id="CC-Number">
+                            <div id="card-number"></div>
+                        </div>
+                        <div id="CC-Expiry">
+                            <label for="expiration-date">VALID THRU</label>
+                            <span>
+                                <div id="expiration-date"></div>
+                            </span>
+                        </div>
+                        <div id="CC-Name">
+                            <div autocomplete="off" id="cardholder-name"></div>
+                            <img id="cardTypeImg2" src="../images/logo.png" alt="card brand">
+                        </div>
+                    </div>
+                    <div class="credit-card-back">
+                        <div id="CC-MagStrip">
+                        </div>
+                        <div id="CC-CVV">
+                            <label for="cvv">CVV</label>
+                            <span>
+                                <div id="cvv"></div>
+                            </span>
+                        </div>
+                        <div id="CC-Info">
+                            <code>We will never save your CVV information as it is expressly prohibited by card associations.</code>
+                        </div>
+                        <input type="hidden" id="paymentMethodNonce" name="paymentMethodNonce" />
+                        <span hidden id="clientToken">
+                            <%= clientToken %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="payment-page-buttons">
+                <a href="/start-checkout" class="btn btn-warning">Go Back</a>
+                <button id="flipCard" type="button" class="btn btn-primary">Flip Card</button>
+                <button id="submitButton" type="submit" class="btn btn-success">Confirm Details</button>
+            </div>
+        </form>
+        <script src="https://js.braintreegateway.com/web/3.82.0/js/client.min.js"></script>
+        <script src="https://js.braintreegateway.com/web/3.82.0/js/hosted-fields.min.js"></script>
+        <script src="/scripts/paymentActions.js" type="text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs') %>
+
+    <body>
+        <div class="failure-page">
+            <h1>Oh no!</h1>
+            <h3>
+                <%= userFeedback.status %> <br> <code class="review-details">
+                        <%= userFeedback.info %>
+                    </code>
+            </h3>
+            <a href="/start-checkout">Back to checkout</a>
+        </div>
+    </body>
+
+</html>

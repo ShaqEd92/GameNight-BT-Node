@@ -1,0 +1,116 @@
+.games-page {
+  @include verticalFormat;
+  justify-content: flex-start;
+  height: 100vh;
+  h3 {
+    @include verticalFormat;
+    height: 10%;
+    font-size: $h3Size;
+    font-weight: lighter;
+    color: $main;
+    margin-bottom: 0;
+  }
+  main {
+    @include horizontalFormat;
+    height: 70%;
+    width: 95%;
+    margin: 0;
+    section {
+      @include verticalFormat;
+      background-color: $light;
+      height: 100%;
+      width: 45%;
+      margin: 0 2%;
+      overflow-y: scroll;
+      h4 {
+        font-size: $h4Size;
+      }
+      h5 {
+        font-size: $h5Size;
+      }
+    }
+  }
+  a {
+    margin-top: 1%;
+    font-size: $h5Size;
+    background-color: $contrast;
+    color: $dark;
+    padding: 1%;
+    border: none;
+    opacity: 0.95;
+    &:hover {
+      opacity: 1;
+    }
+    &:active {
+      transform: scale(0.97);
+      -webkit-transform: scale(0.97);
+      -moz-transform: scale(0.97);
+      -ms-transform: scale(0.97);
+      -o-transform: scale(0.97);
+    }
+  }
+}
+
+.selected-games-header {
+  @include horizontalFormat;
+  align-items: baseline;
+}
+
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  column-gap: 20px;
+  row-gap: 20px;
+  width: 75%;
+  height: 75%;
+  button {
+    font-family: $bodyFont;
+    font-size: $pSize;
+    background-color: $main;
+    color: $dark;
+    padding: 1%;
+    border: none;
+    height: 135px;
+    width: 135px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    &:hover {
+      background-color: $dark;
+      color: $main;
+      box-shadow: 3px 5px 10px 5px gray;
+    }
+    hr {
+      color: $light;
+      font-weight: lighter;
+    }
+  }
+}
+
+.disabled-choice {
+  pointer-events: none;
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+}
+
+@media (max-width: 1000px) {
+  .games-page {
+    text-align: center;
+    height: fit-content;
+    padding-bottom: 5%;
+    h3{
+      font-size: $h4Size
+    }
+    main {
+      @include verticalFormat;
+      width: 100%;
+      section{
+        width: 90%;
+        height: 45vh;
+        margin: 2% 0;
+      }
+    }
+  }
+}

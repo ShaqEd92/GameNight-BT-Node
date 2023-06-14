@@ -1,0 +1,27 @@
+@mixin verticalFormat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin horizontalFormat {
+  @include verticalFormat();
+  flex-direction: row;
+}
+
+$titleFont: "Press Start 2P", cursive;
+$bodyFont: "Quantico", sans-serif;
+
+$dark: #1f1f1f;
+$light: #ebebeb;
+$main: #fe4f60;
+$contrast: #caf1fc;
+$contrast2: #78dcf7;
+
+$h1Size: 64px;
+$h2Size: 48px;
+$h3Size: 32px;
+$h4Size: 20px;
+$h5Size: 18px;
+$pSize: 16px;

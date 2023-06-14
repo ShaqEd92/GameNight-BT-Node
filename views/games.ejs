@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('partials/head.ejs') %>
+
+    <body>
+        <div class="games-page">
+            <h3>Select games for delivery</h3>
+            <main>
+                <section class="game-selection">
+                    <h4>Available games to rent</h4>
+                    <div class="games-container">
+                        <% for(let i=0; i<gamesSelection.length; i++) { %>
+                            <button
+                                class="gameButton <%= gamesSelected.includes(gamesSelection[i].name) ? 'disabled-choice' : '' %>"
+                                id="<%=gamesSelection[i].name %>">
+                                <%= gamesSelection[i].name %>
+                                    <hr>
+                                    $<%= gamesSelection[i].price %>
+                            </button>
+                            <% } %>
+                    </div>
+                </section>
+                <section class="selected-games">
+                    <div class="selected-games-header">
+                        <h4>Your selection</h4>
+                        <h5>&nbsp;&nbsp;(Sub-total: <span id="subTotal">
+                                <%= subTotal %>
+                            </span>)</h5>
+                    </div>
+                    <div class="games-container added-games">
+                        <% for(let i=0; i<gamesSelected.length; i++) { %>
+                            <button class="gameSelectedButton" id="<%=gamesSelected[i] %>">
+                                <%= gamesSelected[i] %>
+                            </button>
+                            <% } %>
+                    </div>
+                </section>
+            </main>
+            <a href="/start-checkout">Proceed to checkout</a>
+        </div>
+        <script src="./scripts/gameSelection.js" type="text/javascript"></script>
+    </body>
+
+</html>

@@ -1,0 +1,61 @@
+.home-page {
+  @include verticalFormat;
+  height: 90vh;
+  h1 {
+    @include verticalFormat;
+    font-family: $titleFont !important;
+    font-size: $h1Size;
+    font-weight: lighter;
+    color: $main;
+  }
+  a {
+    margin-top: 3%;
+    font-size: $h3Size;
+    background-color: $contrast;
+    color: $dark;
+    padding: 1%;
+    border: none;
+    opacity: 0.95;
+    &:hover {
+      opacity: 1;
+    }
+    &:active {
+      transform: scale(0.97);
+      -webkit-transform: scale(0.97);
+      -moz-transform: scale(0.97);
+      -ms-transform: scale(0.97);
+      -o-transform: scale(0.97);
+    }
+  }
+}
+
+.logo-holder{
+  @include verticalFormat;
+}
+
+@media (max-width: 1600px) {
+  .home-page {
+    text-align: center;
+    h1 {
+      font-size: $h2Size;
+    }
+    a {
+      font-size: $h4Size;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .home-page {
+    text-align: center;
+    h1 {
+      font-size: $h2Size;
+    }
+    a {
+      font-size: $h4Size;
+    }
+  }
+  .logo-holder{
+    display: none;
+  }
+}

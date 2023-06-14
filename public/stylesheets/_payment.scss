@@ -1,0 +1,272 @@
+.payment-page {
+  @include verticalFormat;
+  height: 100vh;
+  width: 100%;
+  h3 {
+    @include verticalFormat;
+    height: 10%;
+    font-size: $h3Size;
+    font-weight: lighter;
+    color: $main;
+    margin-bottom: 0;
+  }
+  form {
+    @include verticalFormat;
+    justify-content: flex-start;
+    height: 80%;
+    width: 95%;
+  }
+}
+
+.credit-card-body {
+  background-color: transparent;
+  height: 318.75px;
+  width: 505.5px;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  -o-perspective: 1000px;
+  -moz-perspective: 1000px;
+}
+
+.credit-card-inner,
+.credit-card-inner-static {
+  box-shadow: 3px 3px 10px 3px black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+
+  background: linear-gradient(
+    to bottom right,
+    rgb(7, 7, 105),
+    rgb(39, 39, 139),
+    rgb(7, 7, 105)
+  ) !important;
+}
+
+.credit-card-back {
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+}
+
+.credit-card-front,
+.credit-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip-effect {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transition: all 2s;
+  -webkit-transition: all 2s;
+  -moz-transition: all 2s;
+  -ms-transition: all 2s;
+  -o-transition: all 2s;
+}
+
+.credit-card-front {
+  display: grid;
+  padding: 1% 0 0 2%;
+  grid-template-areas:
+    "a a a"
+    "c c c"
+    "d d d"
+    "e e e";
+}
+
+// CREDIT CARD STYLING
+
+#CC-Header {
+  grid-area: a;
+  margin-bottom: -5%;
+  p {
+    color: $light;
+    font-size: $pSize;
+  }
+}
+
+#CC-Number {
+  grid-area: c;
+  height: 25%;
+}
+
+#CC-Expiry {
+  grid-area: d;
+  @include horizontalFormat;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  margin-bottom: -5%;
+  label {
+    color: $light;
+    font-family: monospace !important;
+    font-size: 10px;
+    width: fit-content;
+  }
+  span {
+    width: 30%;
+    margin-left: 5%;
+  }
+  p {
+    color: $light;
+    font-family: monospace !important;
+    font-size: 10px;
+    width: fit-content;
+  }
+}
+
+#expiration-date {
+  height: 25px;
+  width: 100%;
+  padding: 0 5%;
+}
+
+#CC-Name {
+  grid-area: e;
+  @include horizontalFormat;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  p {
+    font-size: 16px;
+    color: $light;
+    font-family: monospace;
+  }
+  img {
+    height: 75px;
+    vertical-align: top;
+    margin-right: 8%;
+    margin-bottom: -5%;
+  }
+}
+
+.credit-card-back {
+  @include verticalFormat;
+  padding: 5% 0 5% 5%;
+  overflow: hidden;
+  position: relative;
+}
+
+#CC-MagStrip {
+  z-index: 2;
+  flex: 0.5;
+  width: 200%;
+  height: 35%;
+  background: linear-gradient(to bottom, silver, rgb(216, 216, 216), silver);
+}
+
+#CC-CVV {
+  @include horizontalFormat;
+  justify-content: flex-start;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  label {
+    color: $light;
+    font-family: monospace !important;
+    font-size: 14px;
+    width: fit-content;
+  }
+  span {
+    width: 20%;
+    margin-left: 5%;
+  }
+}
+
+#cvv {
+  height: 25px;
+  width: 100%;
+  border: 1px dotted white;
+  padding: 0 20%;
+}
+
+#CC-Info {
+  flex: 1;
+  width: 95%;
+  code {
+    font-size: 11px;
+    color: $light;
+    font-weight: light;
+  }
+}
+
+.cc-hidden {
+  display: none;
+}
+
+#disclaimer {
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 5%;
+}
+
+.payment-page-buttons {
+  @include horizontalFormat;
+  justify-content: space-between;
+  width: 505.5px;
+}
+
+@media (max-width: 1000px) {
+  .payment-page {
+    text-align: center;
+    h3 {
+      font-size: $h4Size;
+    }
+    form{
+      justify-content: center;
+    }
+  }
+  .credit-card-body {
+    height: 318.75px * 0.6;
+    width: 505.5px * 0.6;
+  }
+  #CC-Header{
+    margin-bottom: -25%;
+    p{
+      font-size: $pSize * 0.75;
+    }
+  }
+  #CC-Number {
+    margin-bottom: -10%;
+  }
+  #CC-Expiry {
+    margin-bottom: -10%;
+  }
+  #CC-Name {
+    margin-top: -12%;
+    img{
+      height: 40px;
+    }
+  }
+  .payment-page-buttons{
+    width: 505.5px * 0.6;;
+    a, button{
+      font-size: $pSize * 0.75;
+    }
+  }
+}
