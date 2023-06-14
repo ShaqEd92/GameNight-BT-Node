@@ -11,7 +11,7 @@ Web store app that utilizes the Braintree Javascript SDK's [Hosted Fields UI](ht
 ## Instructions
 - Install node packages
     - ``` npm install```
-- Create `.env` file and enter in your [Braintree API credentials] and sessions secret (https://developer.paypal.com/braintree/articles/control-panel/important-gateway-credentials#api-credentials).
+- Create `.env` file and enter in your [Braintree API credentials](https://developer.paypal.com/braintree/articles/control-panel/important-gateway-credentials#api-credentials) and sessions secret key.
 ```
 SECRET = {{string_of_your_choosing}}
 
